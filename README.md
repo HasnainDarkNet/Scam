@@ -1,7 +1,8 @@
+
 🔐 Image Enhancer Security Testing Tool
 
 <p align="center">
-  <img src="assets/banner.png" alt="Image Enhancer Security Testing Tool" width="900">
+  <img width="1117" height="405" alt="Capture" src="https://github.com/user-attachments/assets/c3667d5c-0bcc-42a4-aac1-5d12db3b6705" />
 </p><p align="center">
   <strong>Educational Cybersecurity • Privacy Awareness • Security Testing</strong>
 </p><p align="center">
@@ -9,7 +10,7 @@
   <img src="https://img.shields.io/badge/Security-Research-red?style=for-the-badge">
   <img src="https://img.shields.io/badge/Privacy-Awareness-green?style=for-the-badge">
   <img src="https://img.shields.io/github/license/YOUR-USERNAME/YOUR-REPOSITORY?style=for-the-badge">
-</p>---
+
 
 📌 About
 
@@ -19,7 +20,7 @@ Many image-enhancement platforms require users to upload their images to a backe
 
 This project helps demonstrate what can potentially happen to uploaded images and why users should understand how their data is handled.
 
-«⚠️ This project is intended only for educational purposes, authorized security testing, and cybersecurity awareness.»
+⚠️ This project is intended only for educational purposes, authorized security testing, and cybersecurity awareness.»
 
 ---
 
@@ -39,39 +40,6 @@ It focuses on questions such as:
 
 ---
 
-🔄 How Image Processing Can Work
-
-┌───────────────┐
-│     User      │
-└───────┬───────┘
-        │
-        ▼
-┌────────────────┐
-│ Image Upload   │
-└───────┬────────┘
-        │
-        ▼
-┌────────────────┐
-│ Backend Server │
-└───────┬────────┘
-        │
-        ├──────────────► Image Processing
-        │
-        ├──────────────► Temporary Storage
-        │
-        └──────────────► Database / File Storage
-                         │
-                         ▼
-                  ┌──────────────┐
-                  │ Enhanced Img │
-                  └──────┬───────┘
-                         │
-                         ▼
-                       User
-
-The important security question is:
-
-«What happens to your image between upload and download?»
 
 ---
 
@@ -163,35 +131,6 @@ Before uploading personal images to an online service:
 
 ---
 
-🧪 Educational Testing
-
-You can use this project in a controlled lab environment to demonstrate:
-
-Upload
-   ↓
-Request
-   ↓
-Backend Processing
-   ↓
-Storage
-   ↓
-Image Enhancement
-   ↓
-Response
-
-The purpose is to understand the security architecture and identify ways developers can make image-processing applications safer.
-
----
-
-📸 Project Preview
-
-<p align="center">
-  <img src="assets/preview.png" alt="Project Preview" width="850">
-</p>---
-
-
----
-
 💻 Technologies
 
 Depending on the implementation, this project may use technologies such as:
@@ -203,22 +142,6 @@ Python
 REST API
 Image Processing
 Backend Server
-
----
-
-📂 Project Structure
-
-Image-Enhancer-Security/
-│
-├── assets/
-│   ├── banner.png
-│   └── preview.png
-│
-├── src/
-│
-├── README.md
-│
-└── LICENSE
 
 ---
 
